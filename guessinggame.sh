@@ -1,26 +1,31 @@
 #!/usr/bin/env bash
 # File: guessinggame.sh
 
-number=ls | wc -l
+solution=$(ls | wc -l)
 echo "Welcome to the Guessing Game!"
 echo "Can you guess how many files you current directory has?"
 read response
 
 function salvora {
-
-for #there needs to be a loop, so it starts again if the answer is wrong
-if [[ $response -gt $number ]]
+if [[ $response -gt $solution ]]
 then
   echo "Oops, your number's too high!"
-  elif [[ $response -lt $number ]]
+  elif [[ $response -lt $solution ]]
 then
   echo "Oops, your number's too low!"
-elif [[ $response -gt $number ]]
+elif [[ $response -eq $solution ]]
 then
   echo "Well done, you nailed it!"
 else
   echo "Please enter a number"
 fi
 }
+while [[ $response -ne $solution ]]
+do
+  
+ echo "Please try again"
+    read response
+    salvora 
+done
  
 
