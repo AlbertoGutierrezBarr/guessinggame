@@ -13,13 +13,14 @@ then
   elif [[ $response -lt $solution ]]
 then
   echo "Oops, your number's too low!"
-elif [[ $response -eq $solution ]]
+  elif [[ $response -eq $solution ]]
 then
   echo "Well done, you nailed it!"
 else
   echo "Please enter a number"
 fi
 }
+salvora
 while [[ $response -ne $solution ]]
 do
   
