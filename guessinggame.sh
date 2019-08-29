@@ -1,13 +1,19 @@
 #!/usr/bin/env bash
 # File: guessinggame.sh
 
-solution=$(ls | wc -l)
+solution=$(ls -al | grep ^[-] | wc -l)
 echo "Welcome to the Guessing Game!"
-echo "Can you guess how many files you current directory has?"
+echo "Can you guess how many files (not directories), you current directory has?"
 read response
 
 function salvora {
-if [[ $response -gt $solution ]]
+  if [[ $response =~ ^[A-Z]+$ ]]
+then
+  echo "We are not doing Roman numbers here"
+  elif ! [[ $response =~ ^[0-9]+$ ]]
+then
+  echo "Hmmm, I didn't get that, could it be a typo?"
+  elif [[ $response -gt $solution ]]
 then
   echo "Oops, your number's too high!"
   elif [[ $response -lt $solution ]]
@@ -16,8 +22,7 @@ then
   elif [[ $response -eq $solution ]]
 then
   echo "Well done, you nailed it!"
-else
-  echo "Please enter a number"
+  echo "Congratulations!"
 fi
 }
 salvora
