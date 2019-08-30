@@ -24,7 +24,7 @@ fi
 }
 
 salvora #This is the name of the function
-while ! [[ $response =~ $solution ]]
+while ! [[ $response = $solution ]]
 do
  echo "Please try again"
     read response
