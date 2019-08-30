@@ -7,12 +7,9 @@ echo "Can you guess how many files (not directories), you current directory has?
 read response
 
 function salvora {
-  if [[ $response =~ ^[A-Z]+$ ]]
+  if ! [[ $response =~ ^[0-9]+$ ]]
 then
-  echo "We are not doing Roman numbers here"
-  elif ! [[ $response =~ ^[0-9]+$ ]]
-then
-  echo "Hmmm, I didn't get that, could it be a typo?"
+  echo "Hmmm, I didn't get that, could there be a typo?"
   elif [[ $response -gt $solution ]]
 then
   echo "Oops, your number's too high!"
@@ -26,7 +23,7 @@ then
 fi
 }
 salvora
-while [[ $response -ne $solution ]]
+while ! [[ $response =~ $solution ]]
 do
   
  echo "Please try again"
