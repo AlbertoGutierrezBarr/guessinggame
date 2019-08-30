@@ -3,7 +3,7 @@
 
 solution=$(ls -al | grep ^[-] | wc -l)
 echo "Welcome to the Guessing Game!"
-echo "Can you guess how many files (not directories), you current directory has?"
+echo "Can you guess how many files (not directories), your current directory has?"
 read response
 
 function salvora {
