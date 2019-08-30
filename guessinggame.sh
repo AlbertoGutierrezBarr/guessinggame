@@ -22,10 +22,10 @@ then
   echo "Congratulations!"
 fi
 }
+
 salvora
 while ! [[ $response =~ $solution ]]
 do
-  
  echo "Please try again"
     read response
     salvora 
