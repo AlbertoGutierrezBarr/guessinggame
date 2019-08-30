@@ -23,12 +23,12 @@ then
 fi
 }
 
-salvora
+salvora #This is the name of the function
 while ! [[ $response =~ $solution ]]
 do
  echo "Please try again"
     read response
-    salvora 
+    salvora #Again, the function
 done
  
 
